@@ -1,0 +1,6 @@
+module Pods_AgoraVideoCall {
+  umbrella header "Pods-AgoraVideoCall-umbrella.h"
+
+  export *
+  module * { export * }
+}
