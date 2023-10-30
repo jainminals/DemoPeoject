@@ -10,10 +10,9 @@ export default function Detail({navigation ,route}) {
   return (
     <SafeAreaView style={{justifyContent:"center",alignItems:"center"}}>
        <View
-      onPress={()=> navigation.navigate("Detail")}
         style={{
           backgroundColor: '#fff',
-          width: '49%',
+          width: '99%',
           margin: 2,
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -29,9 +28,9 @@ export default function Detail({navigation ,route}) {
           <Text style={{color: '#000'}} numberOfLines={2}>
             {userdata.title}
           </Text>
+          <Text style={{color: '#000'}}>{userdata.body}</Text>
         </View>
        
-        <Text>{userdata.body}</Text>
       </View>
     </SafeAreaView>
   )

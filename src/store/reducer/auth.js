@@ -1,6 +1,6 @@
 export const initialState = {
-  homedata: null,
- 
+  homedata: [],
+  homedatabackup:[]
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,6 +9,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         homedata: action.homedata
+      }
+    }
+    case "SET_HOME_DATA_BACKUP": {
+      return {
+        ...state,
+        homedatabackup: action.homedatabackup
       }
     }
     
