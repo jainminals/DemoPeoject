@@ -1,0 +1,2 @@
+export const  SET_HOME_DATA = 'SET_HOME_DATA';
+export const SET_HOME_DATA_BACKUP = 'SET_HOME_DATA_BACKUP';

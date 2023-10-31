@@ -1,37 +1,37 @@
-import { View, Text, SafeAreaView } from 'react-native'
-import React ,{useEffect}from 'react'
+import React, { useState, useEffect } from 'react';
+import { View, Text, SafeAreaView, Image, StyleSheet } from 'react-native';
+import { styles } from "./styles";
 
-export default function Detail({navigation ,route}) {
-  const [userdata, setuserdata] = useState([])
+interface DetailProps {
+  navigation: any; // Update this type to match your navigation prop type
+  route: any; // Update this type to match your route prop type
+}
+
+const Detail: React.FC<DetailProps> = ({ route }) => {
+  const [userdata, setuserdata] = useState([]); // Update the type as per your data structure
+
   useEffect(() => {
-    setuserdata(route.params.item)
-  }, [])
-  
+    setuserdata(route.params.item);
+  }, [route.params.item]);
+
   return (
-    <SafeAreaView style={{justifyContent:"center",alignItems:"center"}}>
-       <View
-        style={{
-          backgroundColor: '#fff',
-          width: '99%',
-          margin: 2,
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          paddingVertical: 10,
-        }}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.card}>
         <Image
-          style={{height: 100, width: 100, borderRadius: 50}}
+          style={styles.image}
           source={{
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg',
+            uri:
+              'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/1200px-Unknown_person.jpg',
           }}
         />
-        <View>
-          <Text style={{color: '#000'}} numberOfLines={2}>
-            {userdata.title}
-          </Text>
-          <Text style={{color: '#000'}}>{userdata.body}</Text>
+        <View style={styles.textContainer}>
+          <Text style={styles.title}>{userdata?.title}</Text>
+          <Text style={styles.body}>{userdata?.body}</Text>
         </View>
-       
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
+
+
+export default Detail;
